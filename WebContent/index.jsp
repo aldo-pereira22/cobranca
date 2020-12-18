@@ -11,7 +11,9 @@
 	
 	<ul>
 		<li > <a href="cadastrar-cliente.jsp">  cadastro de cliente </a>  </li>
-		<li>  <a> Cadastro de servicos </a> </li>
+		<li> <a href="clientes.jsp" > Lista de clientes </a> </li>
+		<li>  <a href="cadastrar-servico.jsp" > Cadastro de Serviços </a> </li>
+		<li> <a href="servicos.jsp" >  Lista de Serviços </a> </li>
 	</ul>
 	
 </body>

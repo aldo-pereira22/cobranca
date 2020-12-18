@@ -95,8 +95,7 @@ public class ClienteDAO {
 		c2.setNomeFantasia("Loja de Doces");
 		
 		cdao.salvar(c2);
-		teste
-		
+	
 		System.out.println("Nome: "+c2.getNome());
 		System.out.println("CNPJ "+ c2.getCnpj());
 		System.out.println("Nome DA Loja: "+ c2.getNomeFantasia());

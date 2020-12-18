@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CADASTRO DE CLIENTE</title>
+<title>Cadastro de Servico</title>
 </head>
 <body>
-
-	<h1>CADASTRO DE CLIENTES</h1>
-
-	<form action=""></form>
+	<h1>CADASTRO DE SERVIÇOS</h1>
 	<button>
 		<a href="index.jsp"> VOLTAR </a>
 	</button>
