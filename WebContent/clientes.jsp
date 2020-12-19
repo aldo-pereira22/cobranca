@@ -9,9 +9,35 @@
 <title>Clientes</title>
 </head>
 <body>
+<header>
+		<div class="container">
+			<div class="logo">
+				<a href="index.jsp"> <img alt="" src="logo1.png">
+				</a>
+			</div>
+
+			<div class="menu">
+
+				<nav>
+					<ul>
+						<li><a href="index.jsp"> INICIO </a></li>
+						
+						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
+						<li><a href="clientes.jsp"> LISTA DE CLIENTES </a></li>
+						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
+						<li><a href="servicos.jsp"> LISTA DE SERVIÇOS </a></li>
+						
+					</ul>
+				</nav>
+				
+			</div>
+
+		</div>
+
+	</header>
 
 	<h1>Clientes</h1>
-	<a href="cadastro-cliente.jsp">Novo Cliente</a> 
+ 		<a class="btn" href="cadastro-cliente.jsp">Novo Cliente</a>  
 	<table>
 		
 		<thead>

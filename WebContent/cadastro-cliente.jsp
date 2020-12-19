@@ -10,13 +10,41 @@
 	</head>
 
 	<body>
+	
+	<header>
+		<div class="container">
+			<div class="logo">
+				<a href="index.jsp"> <img alt="" src="logo1.png">
+				</a>
+			</div>
+
+			<div class="menu">
+
+				<nav>
+					<ul>
+						<li><a href="index.jsp"> INICIO </a></li>
+						
+						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
+						<li><a href="clientes.jsp"> LISTA DE CLIENTES </a></li>
+						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
+						<li><a href="servicos.jsp"> LISTA DE SERVIÇOS </a></li>
+						
+					</ul>
+				</nav>
+				
+			</div>
+
+		</div>
+
+	</header>
+	
 
 		<form action="clientes" method="post">
 
 			<input type="hidden" name="id" id="id" />
-			CNPJ <input type="text" name="input-cnpj" size="30" value="${cliente.getCnpj()}" />
-			Nome <input type="text" name="input-nome" size="70" value="${cliente.getNome()}" />
-			<p>Nome Fantasia <input type="text" name="input-nomeFantasia" size="70"
+			CNPJ <input required type="text" name="input-cnpj" size="30" value="${cliente.getCnpj()}" />
+			Nome <input required type="text" name="input-nome" size="70" value="${cliente.getNome()}" />
+			<p> Nome Fantasia <input type="text" name="input-nomeFantasia" size="70"
 					value="${cliente.getNomeFantasia()}" /></p>
 
 			<p>CEP <input type="text" name="input-cep" size="30" value="${cliente.getCep()}" />
