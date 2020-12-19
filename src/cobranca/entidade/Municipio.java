@@ -11,9 +11,10 @@ public class Municipio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private String nome;
+	
 	private String UF;
+	private String nome;
+	
 
 	public Municipio() {
 		// TODO Auto-generated constructor stub

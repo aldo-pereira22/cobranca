@@ -1,15 +1,11 @@
 package cobranca.entidade;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Cliente {
-
 	
 	@Id
 	private String cnpj;
@@ -21,6 +17,10 @@ public class Cliente {
 	private String numero;
 	private String complemento;
 
+	private String uf;
+	
+	private String municipio;
+	
 //	@ManyToOne
 //	private Municipio municipio;
 
@@ -29,7 +29,7 @@ public class Cliente {
 	}
 	
 	public Cliente(String cnpj, String nome, String nomeFantasia, String cep, String logradouro, String numero,
-			String complemento) {
+			String complemento, String uf, String municipio) {
 		super();
 		this.cnpj = cnpj;
 		this.nome = nome;
@@ -38,11 +38,17 @@ public class Cliente {
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
-//		this.municipio = municipio;
+		this.uf = uf;
+		this.municipio = municipio;
 	}
 
-
-
+//	public Long getId() {
+//		return id;
+//	}
+//	
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 
 	public String getCnpj() {
 		return cnpj;
@@ -100,11 +106,19 @@ public class Cliente {
 		this.complemento = complemento;
 	}
 
-//	public Municipio getMunicipio() {
-//		return municipio;
-//	}
-//
-//	public void setMunicipio(Municipio municipio) {
-//		this.municipio = municipio;
-//	}
+	public String getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(String municipio) {
+		this.municipio = municipio;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
 }

@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import cobranca.entidade.Cliente;
 import cobranca.services.ClienteDAO;
 
-
-
-public class AcaoListagemClientes {	
+public class AcaoListagemClientes {
 
 	private HttpServletRequest req;
 	public AcaoListagemClientes(HttpServletRequest req) {

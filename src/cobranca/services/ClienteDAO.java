@@ -17,43 +17,23 @@ public class ClienteDAO {
 		em = jpaUtil.getEntityManager();	
 	}
 	
-//	public void salvar(Cliente cliente) {
-//		em.getTransaction().begin();
-//		Cliente existente = get(cliente.getId()); //ID TO LOAD IS REQUIRED FOR LOADING
-//		if(existente == null) {
-//			em.persist(cliente);
-//		} else {
-//			existente.setCnpj(cliente.getCnpj());
-//			existente.setNome(cliente.getNome());
-//			existente.setNomeFantasia(cliente.getNomeFantasia());
-//			existente.setCep(cliente.getCep());
-//			existente.setLogradouro(cliente.getLogradouro());
-//			existente.setNumero(cliente.getNumero());
-//			existente.setComplemento(cliente.getComplemento());
-////			existente.setMunicipio(cliente.getMunicipio());
-//			em.persist(existente);
-//		}
-//		em.getTransaction().commit();
-//		em.close();
-//	}
-	
 	public void salvar(Cliente cliente) {
 		em.getTransaction().begin();
-		Cliente existente = new Cliente();
-		existente = get(cliente.getCnpj());
+		Cliente existente = get(cliente.getCnpj());
 		if(existente == null) {
 			em.persist(cliente);
-		}else {
-			existente.setCep(cliente.getCep());
-			existente.setComplemento(cliente.getComplemento());
-			existente.setLogradouro(cliente.getLogradouro());
+		} else {
+			existente.setCnpj(cliente.getCnpj());
 			existente.setNome(cliente.getNome());
-			existente.setNumero(cliente.getNumero());
 			existente.setNomeFantasia(cliente.getNomeFantasia());
-			
+			existente.setCep(cliente.getCep());
+			existente.setLogradouro(cliente.getLogradouro());
+			existente.setNumero(cliente.getNumero());
+			existente.setComplemento(cliente.getComplemento());
+			existente.setUf(cliente.getUf());
+			existente.setMunicipio(cliente.getMunicipio());
+			em.persist(existente);
 		}
-		
-
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -74,37 +54,5 @@ public class ClienteDAO {
 	public Cliente get(String cnpj) {
 		return em.find(Cliente.class, cnpj);
 	}
-	
-	public static void main(String[] args) {
-		Cliente cli = new Cliente();
-		cli.setNome("Aldo");
-		cli.setCnpj("2");
-		cli.setCep("74477233");
-		cli.setComplemento("Trinfo -1 ");
-		cli.setLogradouro("Rua 32");
-		cli.setNomeFantasia("loja de informatica");
-		cli.setNumero("0");
-
-		ClienteDAO cdao = new ClienteDAO();
-		//cdao.salvar(cli);
-		
-		Cliente c2 = new Cliente();	
-		c2 = cdao.get("2");
-		
-		c2.setNome("Joao Vitor Gotijo");
-		c2.setNomeFantasia("Loja de Doces");
-		
-		cdao.salvar(c2);
-	
-		System.out.println("Nome: "+c2.getNome());
-		System.out.println("CNPJ "+ c2.getCnpj());
-		System.out.println("Nome DA Loja: "+ c2.getNomeFantasia());
-	}
-	
-	
-	
-
-	
-	
 	
 }
