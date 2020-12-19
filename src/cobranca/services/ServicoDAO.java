@@ -28,6 +28,7 @@ public class ServicoDAO {
 			em.persist(servico);
 		}else {
 			existente.setNome(servico.getNome());
+			em.persist(existente);
 		}
 	
 		em.getTransaction().commit();
@@ -45,18 +46,28 @@ public class ServicoDAO {
 	
 	
 	public static void main(String[] args) {
-		
 		Servico s = new Servico();
 		
-		s.setNome("INFORMATICA");
 		ServicoDAO sdao = new ServicoDAO();
-		//sdao.salvar(s);
 		
-		Servico s2 = new Servico();
-		s2 = sdao.get(1);
+//		s.setNome("MANUTENÇÃO DE IMPRESSORA");
+//		sdao.salvar(s);
+		 s = sdao.get(1);
+		 
+		System.out.println("ID: -"+ s.getId() );
+		System.out.println("Nome: -"+ s.getNome());
 		
-		s2.setNome("Serviços de Limpeza");
-		sdao.salvar(s2);
-		System.out.println("AQUIII");
+		s.setNome("SERVIÇOS DE INFORMATICA");
+
+		System.out.println("NOVO ID: -"+ s.getId() );
+		System.out.println("NOVO NOME: -"+ s.getNome());
+		
+		
+		sdao.salvar(s);
+		
+		System.out.println("NOVO ID DEPOIS DE EDITAR: -"+ s.getId() );
+		System.out.println("NOVO NOME DEPOIS DE EDITAR: -"+ s.getNome());
+		
+
 	}
 }	

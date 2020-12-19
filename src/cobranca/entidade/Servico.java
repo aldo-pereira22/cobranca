@@ -10,34 +10,25 @@ import javax.persistence.Id;
 public class Servico {
    
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-    private String nome;
+	private String nome;
 
-    public long getId() {
+	public long getId() {
 		return id;
 	}
-
-
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
-
-
-	public Servico() {
-		// TODO Auto-generated constructor stub
-	}
-    
-
-		
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
+	
 }
