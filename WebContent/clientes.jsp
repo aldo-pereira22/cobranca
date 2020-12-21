@@ -67,8 +67,8 @@
  					<td>${a.complemento}</td>
  					<td>${a.uf}</td>
  					<td>${a.municipio}</td>
- 					<td><a class="editar" href="clientes?cnpj=${a.cnpj}&acao=editar">editar</a></td>
- 					<td><a class="excluir" href="clientes?cnpj=${a.cnpj}&acao=excluir">excluir</a></td>
+ 					<td>  <a class="editar" href="clientes?cnpj=${a.cnpj}&acao=editar"> <img alt="" src="edit.png" width="25px"> </a></td>
+ 					<td>  <a class="excluir" href="clientes?cnpj=${a.cnpj}&acao=excluir"> <img alt="" src="delete.png" width="25px"> </a></td>
  				</tr>
  				</c:forEach>
 		</tbody>

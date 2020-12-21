@@ -172,7 +172,7 @@ form input[type=submit]{
 table td a {}
 
 .editar {
-	text-decoration: none;
+	text-align: center;
 }
 
 .excluir {

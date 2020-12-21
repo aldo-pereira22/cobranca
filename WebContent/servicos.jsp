@@ -53,8 +53,8 @@
  				<tr>
 <%--  					<td>${a.id}</td> --%>
  					<td>${a.nome}</td>
- 					<td><a href="servicos?id=${a.id}&acao=editar">editar</a></td>
- 					<td><a href="servicos?id=${a.id}&acao=excluir">excluir</a></td>
+ 					<td><a href="servicos?id=${a.id}&acao=editar"> <img alt="" src="edit.png" width="25px"></a></td>
+ 					<td><a href="servicos?id=${a.id}&acao=excluir"> <img alt="" src="delete.png" width="25px"> </a></td>
  				</tr>
  				</c:forEach>
 		</tbody>
