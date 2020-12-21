@@ -24,10 +24,10 @@
 					<ul>
 						<li><a href="index.jsp"> INICIO </a></li>
 						
-						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
-						<li><a href="clientes.jsp"> LISTA DE CLIENTES </a></li>
+						<li><a class="ativo" href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
+						<li><a href="clientes"> LISTA DE CLIENTES </a></li>
 						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
-						<li><a href="servicos.jsp"> LISTA DE SERVIÇOS </a></li>
+						<li><a href="servicos"> LISTA DE SERVIÇOS </a></li>
 						
 					</ul>
 				</nav>
@@ -39,7 +39,7 @@
 	</header>
 	
 
-		<form action="clientes" method="post">
+		<form  action="clientes" method="post">
 
 			<input type="hidden" name="id" id="id" />
 			CNPJ <input required type="text" name="input-cnpj" size="30" value="${cliente.getCnpj()}" />
@@ -54,19 +54,31 @@
 			<p>Numero <input type="text" name="input-numero" size="30" value="${cliente.getNumero()}" />
 				Complemento <input type="text" name="input-complemento" size="70" value="${cliente.getComplemento()}" />
 			</p>
-
-			<p>UF <select id="uf" name="cbx-uf" style="width:60px">
+			<div class="select">
+			<p>UF <select  id="uf" name="cbx-uf" style="width:200px">
 					<option selected>---></option>
 				</select>
-
-				Municipio <select required id="municipio" name="cbx-municipio" style="width:300px">
+	
+				Municipio <select required id="municipio" name="cbx-municipio" style="width:490px">
 					<option selected></option>
 				</select>
 
 			</p>
 			<p><input type="submit" name="btn-salva" value="salvar" /></p>
-
+			</div>
 		</form>
+		
+			<footer>
+		<div class="container">
+			<div class="footer_menu">
+				<div class="div1"> 
+									SISTEMA DE COBRANÇA || DESENVOLVIDO POR: ALDO PEREIRA E JOÃO VICTOR GONTIJO
+				 </div>
+				
+			
+			</div>
+		</div>
+	</footer>
 	</body>
 	<script>
 		getUF();

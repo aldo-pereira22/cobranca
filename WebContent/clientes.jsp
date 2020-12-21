@@ -23,9 +23,9 @@
 						<li><a href="index.jsp"> INICIO </a></li>
 						
 						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
-						<li><a href="clientes.jsp"> LISTA DE CLIENTES </a></li>
+						<li><a class="ativo" href="clientes"> LISTA DE CLIENTES </a></li>
 						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
-						<li><a href="servicos.jsp"> LISTA DE SERVIÇOS </a></li>
+						<li><a href="servicos"> LISTA DE SERVIÇOS </a></li>
 						
 					</ul>
 				</nav>
@@ -38,10 +38,10 @@
 
 	<h1>Clientes</h1>
  		<a class="btn" href="cadastro-cliente.jsp">Novo Cliente</a>  
-	<table>
+	<table class="tbl" border="1">
 		
 		<thead>
-			<tr>
+			<tr> 	
 				<th>CNPJ</th>
 				<th>NOME</th>
 				<th>NOME FANTASIA</th>
@@ -51,11 +51,13 @@
 				<th>COMPLEMENTO</th>
 				<th>UF</th>
 				<th>MUNICIPIO</th>
+				<th> EDITAR </th>
+				<th> EXCLUIR </th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${clientes}" var="a">
- 				<tr>
+ 				<tr class="tblhover">
  					<td>${a.cnpj}</td>
  					<td>${a.nome}</td>
  					<td>${a.nomeFantasia}</td>
@@ -65,11 +67,37 @@
  					<td>${a.complemento}</td>
  					<td>${a.uf}</td>
  					<td>${a.municipio}</td>
- 					<td><a href="clientes?cnpj=${a.cnpj}&acao=editar">editar</a></td>
- 					<td><a href="clientes?cnpj=${a.cnpj}&acao=excluir">excluir</a></td>
+ 					<td><a class="editar" href="clientes?cnpj=${a.cnpj}&acao=editar">editar</a></td>
+ 					<td><a class="excluir" href="clientes?cnpj=${a.cnpj}&acao=excluir">excluir</a></td>
  				</tr>
  				</c:forEach>
 		</tbody>
 	</table>
+	
+		<footer>
+		<div class="container">
+			<div class="footer_menu">
+				<div class="div1"> 
+									SISTEMA DE COBRANÇA || DESENVOLVIDO POR: ALDO PEREIRA E JOÃO VICTOR GONTIJO
+				 </div>
+				
+			
+			</div>
+		</div>
+	</footer>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

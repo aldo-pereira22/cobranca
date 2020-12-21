@@ -24,9 +24,9 @@
 						<li><a href="index.jsp"> INICIO </a></li>
 						
 						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
-						<li><a href="clientes.jsp"> LISTA DE CLIENTES </a></li>
+						<li><a href="clientes"> LISTA DE CLIENTES </a></li>
 						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
-						<li><a href="servicos.jsp"> LISTA DE SERVIÇOS </a></li>
+						<li><a class="ativo" href="servicos"> LISTA DE SERVIÇOS </a></li>
 						
 					</ul>
 				</nav>
@@ -37,13 +37,15 @@
 
 	</header>
 
-	
- <button >	<a href="cadastro-servicos.jsp"> Novo serviço </a> </button>
-	<table>
+<!--  <button >	<a href="cadastro-servicos.jsp"> Novo serviço </a> </button>
+  -->	
+  <a class="btn" href="cadastro-servicos.jsp"> Novo serviço </a> 
+	<table border="1">
 		<thead>
 			<tr>
-<!-- 				<th>ID</th> -->
 				<th>NOME</th>
+				<th> EDITAR </th>
+				<th> EXCLUIR </th>
 			</tr>
 		</thead> 
 		<tbody>
@@ -57,5 +59,16 @@
  				</c:forEach>
 		</tbody>
 	</table>
+		<footer>
+		<div class="container">
+			<div class="footer_menu">
+				<div class="div1"> 
+									SISTEMA DE COBRANÇA || DESENVOLVIDO POR: ALDO PEREIRA E JOÃO VICTOR GONTIJO
+				 </div>
+				
+			
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

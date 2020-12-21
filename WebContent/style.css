@@ -16,8 +16,11 @@ header {
 .container {
 	display:flex;
 	justify-content:space-between;
-	width: 1200px;
+	width: 80%;
 
+}
+a {
+	list-style: none;
 }
 
 .logo {
@@ -56,6 +59,7 @@ nav a:hover {
 }
 
 .btn {
+margin:10px;
 display: block;
 width: 120px;
 height: 20px;
@@ -70,9 +74,29 @@ font-family: Arial;
 }
 
 
+table {
+	margin:10px;
+}
 
+table th td{
+	border-collapse: collapse;
+}
 
-
+.tbl th {
+		border-collapse: collapse;
+		padding: 20px;
+		}
+		
+.tbl td {
+		padding: 2px 20px;
+		}
+		
+.tblhover:hover {
+	
+	background-color: #39aae1;
+	color: #FFF;	
+	
+}
 
 
 
@@ -83,7 +107,11 @@ footer {
 	color: #FFF;
 	height: 200px;
 	padding: 30px;
-
+	position: fixed;
+	width: 100%;
+	margin-top: 10px;
+	bottom: 0;
+	
 }
 
 .footer_menu{
@@ -109,14 +137,47 @@ table {
 	border-collapse: collapse;
 }
 
+table th {
+	margin: 10px;
+}
+
+form {
+	border: 1px solid;
+	padding: 20px;
+	width: 800px;
+	margin: 0 auto;
+}
+
+form input {
+	 padding: 5px;
+	 font-size: 20px;
+	 width: 100%;
+	 display: block;
+	 margin-bottom: 20px;
+}
+
+form input[type=submit]{
+	
+	margin-top:30px;
+}
+
+.ativo {
+	
+	background-color: #39aae1;
+	color: #FFF;
+	
+}
 
 
+table td a {}
 
+.editar {
+	text-decoration: none;
+}
 
-
-
-
-
-
+.excluir {
+	text-decoration:none;
+	color: red;
+}
 
 
