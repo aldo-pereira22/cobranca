@@ -40,7 +40,7 @@
 <!--  <button >	<a href="cadastro-servicos.jsp"> Novo serviço </a> </button>
   -->	
   <a class="btn" href="cadastro-servicos.jsp"> Novo serviço </a> 
-	<table border="1">
+	<table class="tbl" border="1">
 		<thead>
 			<tr>
 				<th>NOME</th>
@@ -51,12 +51,12 @@
 		<tbody>
 			<c:forEach items="${servicos}" var="a">
  				<tr>
-<%--  					<td>${a.id}</td> --%>
+<%--  				<td>${a.id}</td> --%>
  					<td>${a.nome}</td>
  					<td><a href="servicos?id=${a.id}&acao=editar"> <img alt="" src="edit.png" width="25px"></a></td>
  					<td><a href="servicos?id=${a.id}&acao=excluir"> <img alt="" src="delete.png" width="25px"> </a></td>
  				</tr>
- 				</c:forEach>
+ 			</c:forEach>
 		</tbody>
 	</table>
 		<footer>

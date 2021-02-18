@@ -1,8 +1,11 @@
 package cobranca.entidade;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import cobranca.entidade.Servico;
 
 @Entity
 public class Cliente {
@@ -16,7 +19,7 @@ public class Cliente {
 	private String logradouro;
 	private String numero;
 	private String complemento;
-
+	ArrayList<Servico> listaDeServico = new ArrayList<Servico>();
 	private String uf;
 	
 	private String municipio;
@@ -120,5 +123,9 @@ public class Cliente {
 
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+	
+	public void insereServico(Servico servico) {
+		listaDeServico.add(servico);
 	}
 }

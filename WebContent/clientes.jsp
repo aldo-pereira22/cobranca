@@ -53,6 +53,7 @@
 				<th>MUNICIPIO</th>
 				<th> EDITAR </th>
 				<th> EXCLUIR </th>
+				<th> BOLETOS </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,14 +68,17 @@
  					<td>${a.complemento}</td>
  					<td>${a.uf}</td>
  					<td>${a.municipio}</td>
+ 
  					<td>  <a class="editar" href="clientes?cnpj=${a.cnpj}&acao=editar"> <img alt="" src="edit.png" width="25px"> </a></td>
  					<td>  <a class="excluir" href="clientes?cnpj=${a.cnpj}&acao=excluir"> <img alt="" src="delete.png" width="25px"> </a></td>
+ 					<td>  <a class="" href="clientes?cnpj=${a.cnpj}&acao=boleto"> VER BOLETOS </a></td>
+
  				</tr>
  				</c:forEach>
 		</tbody>
 	</table>
 	
-		<footer>
+	<footer>
 		<div class="container">
 			<div class="footer_menu">
 				<div class="div1"> 

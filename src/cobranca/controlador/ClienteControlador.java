@@ -43,6 +43,12 @@ public class ClienteControlador extends HttpServlet {
 				}
 			}
 			
+			if(acao.equals("boleto")) {
+				String pagina = "cliente-boleto.jsp" ;
+				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+				dispatcher.forward(req, resp);				
+			}
+			
 		} else {
 			String pagina = new AcaoListagemClientes(req).executa();
 			RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
