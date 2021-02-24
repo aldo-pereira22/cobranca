@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-<title>Cadastro de Serviços</title>
+<title>Cadastro de Boletos</title>
 </head>
 <body>
 <header>
@@ -23,7 +23,7 @@
 						
 						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
 						<li><a href="clientes"> LISTA DE CLIENTES </a></li>
-						<li><a class="ativo" href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
+						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
 						<li><a href="servicos"> LISTA DE SERVIÇOS </a></li>
 						
 					</ul>
@@ -37,9 +37,15 @@
 
 
 	
-	<form action="servicos" method="post">
-		<input type="hidden" name="id" id="id" value="${servico.getId()}" />
-		<p><input type="text" name="input-nome" placeholder="Digite o nome" size="70" value="${servico.getNome() }"/></p>		
+	<form action="boletos" method="post">
+		<input type="hidden" name="id" id="id" />
+		<p><input type="text" name="input-valor" placeholder="Digite o Valor" size="70" value="${boleto.getValor() }"/></p>
+		<p><input type="text" name="input-descricao" placeholder="Descriçao" size="70" value="${boleto.getDescricao() }"/></p>
+		<p><input type="text" name="input-codigo" placeholder="Codigo" size="70" value="${ boleto.getCodigo() }"/></p>
+		
+		
+		
+
 		<p><input type="submit" name="btn-salva" value="salvar"/></p>
 	</form>
 	

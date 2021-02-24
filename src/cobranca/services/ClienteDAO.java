@@ -46,6 +46,7 @@ public class ClienteDAO {
 		em.close();
 	}
 	
+	
 	public List<Cliente> lista(){
 		TypedQuery<Cliente> qry = em.createQuery("from Cliente", Cliente.class);
 		return qry.getResultList();

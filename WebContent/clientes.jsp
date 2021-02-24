@@ -53,7 +53,7 @@
 				<th>MUNICIPIO</th>
 				<th> EDITAR </th>
 				<th> EXCLUIR </th>
-				<th> BOLETOS </th>
+				<th> CONTRATOS </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -71,7 +71,7 @@
  
  					<td>  <a class="editar" href="clientes?cnpj=${a.cnpj}&acao=editar"> <img alt="" src="edit.png" width="25px"> </a></td>
  					<td>  <a class="excluir" href="clientes?cnpj=${a.cnpj}&acao=excluir"> <img alt="" src="delete.png" width="25px"> </a></td>
- 					<td>  <a class="" href="clientes?cnpj=${a.cnpj}&acao=boleto"> VER BOLETOS </a></td>
+ 					<td>  <a class="" href="contrato?cnpj=${a.cnpj}&acao=contratos"> CONTRATOS </a></td>
 
  				</tr>
  				</c:forEach>

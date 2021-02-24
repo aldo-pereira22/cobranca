@@ -4,19 +4,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public class Servico {
    
+	  public Servico() {
+			// TODO Auto-generated constructor stub
+		}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
+	private long id;	
     private String nome;
+   
+//    @ManyToOne
+//    @JoinColumn(name = "cliente", nullable = false)
+//    @ForeignKey(name = "pessoa_fk")
+//    private Cliente cliente = new Cliente();
+    
+//    public void setCliente(Cliente cliente) {
+//		this.cliente = cliente;
+//	}
+//    public Cliente getCliente() {
+//		return cliente;
+//	}
 
-    public Servico() {
-		// TODO Auto-generated constructor stub
-	}
+    
 
 
 	public long getId() {

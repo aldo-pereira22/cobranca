@@ -42,12 +42,7 @@ public class ClienteControlador extends HttpServlet {
 					dispatcher.forward(req, resp);
 				}
 			}
-			
-			if(acao.equals("boleto")) {
-				String pagina = "cliente-boleto.jsp" ;
-				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
-				dispatcher.forward(req, resp);				
-			}
+
 			
 		} else {
 			String pagina = new AcaoListagemClientes(req).executa();
@@ -60,6 +55,7 @@ public class ClienteControlador extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("AQUIII LINHA 58");
 		String pagina = new AcaoSalvaClientes(req).executa();
 		RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
 		dispatcher.forward(req, resp);

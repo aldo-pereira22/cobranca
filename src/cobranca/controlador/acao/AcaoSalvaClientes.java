@@ -27,8 +27,7 @@ public class AcaoSalvaClientes {
 		String complemento = req.getParameter("input-complemento");
 		String uf = req.getParameter("cbx-uf");
 		String municipio = req.getParameter("cbx-municipio");
-//		Cliente cliente = new Cliente(cnpj, nome, nomeFantasia, cep, logradouro, numero, 
-//				complemento, uf, municipio);
+
 		cliente.setCnpj(cnpj);
 		cliente.setNome(nome);
 		cliente.setNomeFantasia(nomeFantasia);

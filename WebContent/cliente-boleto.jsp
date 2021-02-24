@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="cobranca.entidade.Cliente"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +20,11 @@
 
 				<nav>
 					<ul>
-						<li><a href="index.jsp"> INICIO </a></li>
-						
+						<li><a href="index.jsp"> INICIO </a></li>						
 						<li><a href="cadastro-cliente.jsp"> CADASTRO DE CLIENTES </a></li>
 						<li><a href="clientes"> LISTA DE CLIENTES </a></li>
-						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÃ‡OS </a></li>
-						<li><a href="servicos"> LISTA DE SERVIÃ‡OS </a></li>
-						
+						<li><a href="cadastro-servicos.jsp"> CADASTRO DE SERVIÇOS </a></li>
+						<li><a href="servicos"> LISTA DE SERVIÇOS </a></li>						
 					</ul>
 				</nav>
 				
@@ -33,5 +33,39 @@
 		</div>
 
 	</header>
+	
+		<h1 style="margin-left: 10px" >CONTRATOS</h1> 
+		<h1 style="margin-left: 10px"> Cliente : ${cliente.cnpj}  </h1> 
+	<table class="tbl" border="1">
+		
+		<thead>
+			<tr> 	
+				<th>CODIGO</th>
+				<th>DESCRIÇÃO</th>
+				<th>SERVICO</th>
+				<th> EDITAR  </th>
+				<th> EXCLUIR  </th>
+				<th> BOLETO </th>
+
+			</tr>
+		</thead>
+		
+		<tbody>
+			<c:forEach items="${listaDeContrato}" var="a">
+ 				<tr class="tblhover">
+ 					<td>${a.codigo}</td> 	
+ 					<td>${a.descricao}</td>
+ 					<td>${a.servico.nome}</td>
+ 					<td>  <a class="editar" href="boletos?cnpj=${cliente.cnpj}&acao=editar&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> <img alt="" src="edit.png" width="25px"> </a></td>
+ 					<td>  <a class="excluir" href="boletos?cnpj=${cliente.cnpj}&acao=excluir&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> <img alt="" src="delete.png" width="25px"> </a></td>
+ 					<td>  <a class="excluir" href="boletos?cnpj=${cliente.cnpj}&acao=gerar&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> GERAR BOLETO </a></td>
+ 					
+ 					
+ 				</tr>
+ 			</c:forEach>
+		</tbody>
+		 
+	</table>
+	<a class="btn" href="contrato?acao=novoContrato&cnpj=${cliente.cnpj}">Novo Contrato</a>  
 </body>
 </html>
