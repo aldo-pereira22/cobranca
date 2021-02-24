@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.rowset.serial.SerialJavaObject;
 
 import cobranca.boleto.acao.AcaoCarregaContrato;
 import cobranca.controlador.acao.AcaoCarregaDadosCliente;
@@ -60,10 +61,10 @@ public class ContratoControlador extends HttpServlet {
 			Cliente cliente = new ClienteDAO().get(cnpj);
 			List<Servico> servico = new ServicoDAO().lista();
 			
-	
+			
 			req.setAttribute("servico", servico);
 			req.setAttribute("cliente", cliente);
-			
+		
 			RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro-contrato.jsp");
 			dispatcher.forward(req, resp);
 		}
@@ -101,7 +102,23 @@ public class ContratoControlador extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String cnpj = req.getParameter("cnpj");
+		Cliente cliente = new ClienteDAO().get(cnpj);
+		Servico servico = new ServicoDAO().getServico(Long.parseLong( req.getParameter("id") ));
 		
+		Contrato contrato = new Contrato();
+		ContratoDao cdao = new ContratoDao();
+		
+		contrato.setValor(Double.parseDouble(req.getParameter("input-valor")));
+		contrato.setDescricao(req.getParameter("input-descricao"));
+		contrato.setCodigo(req.getParameter("input-codigo"));		
+		contrato.setServico(servico);
+		contrato.setCliente(cliente);
+		cdao.salvar(contrato);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro-boleto.jsp");
+		dispatcher.forward(req, resp);
+	
 		
 	}
 }

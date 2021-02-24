@@ -30,7 +30,7 @@ public class ContratoDao {
 		}else {
 			
 
-
+			existente.setValor(contrato.getValor());
 			existente.setDescricao(contrato.getDescricao());
 			existente.setCodigo(contrato.getCodigo());
 			existente.setCliente(contrato.getCliente());
@@ -72,9 +72,9 @@ public static void main(String[] args) {
 	
 	contrato.setCliente(cliente);
 	contrato.setServico(servico);
-	contrato.setCodigo("900");
-	contrato.setDescricao("Serviços de informatica");
-	
+	contrato.setCodigo("150");
+	contrato.setDescricao("SERVICO DE IMPRESSÃO");
+	contrato.setValor(180);
 	cdao.salvar(contrato);
 	
 }

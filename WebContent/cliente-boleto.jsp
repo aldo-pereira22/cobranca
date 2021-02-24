@@ -42,7 +42,7 @@
 			<tr> 	
 				<th>CODIGO</th>
 				<th>DESCRIÇÃO</th>
-				<th>SERVICO</th>
+				<th> VALOR </th>
 				<th> EDITAR  </th>
 				<th> EXCLUIR  </th>
 				<th> BOLETO </th>
@@ -55,7 +55,7 @@
  				<tr class="tblhover">
  					<td>${a.codigo}</td> 	
  					<td>${a.descricao}</td>
- 					<td>${a.servico.nome}</td>
+ 					<td>${a.valor }</td>
  					<td>  <a class="editar" href="boletos?cnpj=${cliente.cnpj}&acao=editar&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> <img alt="" src="edit.png" width="25px"> </a></td>
  					<td>  <a class="excluir" href="boletos?cnpj=${cliente.cnpj}&acao=excluir&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> <img alt="" src="delete.png" width="25px"> </a></td>
  					<td>  <a class="excluir" href="boletos?cnpj=${cliente.cnpj}&acao=gerar&codigo=${a.codigo}&id=${a.id}&cnpj=${cliente.cnpj}"> GERAR BOLETO </a></td>

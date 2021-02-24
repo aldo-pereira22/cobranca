@@ -44,18 +44,22 @@
 
 
 
-	<form action="boletos" method="post">
-		<input type="hidden" name="id" id="id" />
-		<h2 style="margin-left: 10px"> Cliente : ${cliente.getNome()}  </h2>
+	<form action="contrato" method="post">
+	
+		<input type="hidden" name="cnpj" id="cnpj" value="${cliente.getCnpj() }"/>
+		<h2 style="margin-left: 10px"> Cliente : ${cliente.getNome()} <br> CNPJ:${cliente.getCnpj()}  </h2>
 		<h2>Servicos: </h2>
 		
 	<div class="">
 
-	<select> 
+
+	<select class="select-estiloso" name="id"> 
+	
+		<option> Selecione o servico -->   </option>
 		<c:forEach items="${servico}" var="a">
  				
 
- 				<option>${a.nome} </option>	 					 					
+ 				<option value="${a.id}" > ${a.nome} </option>	 					 					
  					
 
  			</c:forEach>
