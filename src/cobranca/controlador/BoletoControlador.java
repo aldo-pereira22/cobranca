@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import cobranca.boleto.acao.AcaoGeraBoleto;
 import cobranca.boleto.acao.AcaoLinstagemContratos;
+import cobranca.boleto.acao.AcaoRetornaContrato;
 import cobranca.entidade.Boleto;
 import cobranca.entidade.Contrato;
 import cobranca.services.BoletoDAO;
 import cobranca.services.ContratoDao;
+import net.bytebuddy.agent.builder.AgentBuilder.InitializationStrategy.Dispatcher;
 
 @WebServlet(urlPatterns = "/boleto")
 public class BoletoControlador extends HttpServlet{
@@ -35,6 +37,14 @@ public class BoletoControlador extends HttpServlet{
 					dispatcher.forward(req, resp);	
 					
 				
+			}
+				
+			if(acao.equals("contratos")) {
+				
+				
+				String pagina = new AcaoRetornaContrato(req).executa();				
+				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+				dispatcher.forward(req, resp);
 			}
 		}
 		

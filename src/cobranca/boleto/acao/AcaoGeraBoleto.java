@@ -13,6 +13,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.Barcode;
 import com.itextpdf.text.pdf.Barcode128;
 import com.itextpdf.text.pdf.Barcode39;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import cobranca.entidade.Boleto;
@@ -74,11 +75,14 @@ public class AcaoGeraBoleto {
 			img.scalePercent(300);	
 			
 			
-			documento.add(pnome);
-			documento.add(pnumeroContrato);
-			documento.add(pservico);
-			documento.add(pvalor);
-			documento.add(p);
+//			documento.add(pnome);
+//			documento.add(pnumeroContrato);
+//			documento.add(pservico);
+//			documento.add(pvalor);
+//			documento.add(p);
+			
+
+			
 			documento.add(img);
 			
 			
