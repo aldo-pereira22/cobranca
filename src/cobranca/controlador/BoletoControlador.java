@@ -32,16 +32,15 @@ public class BoletoControlador extends HttpServlet{
 				if(acao.equals("gerar")) {
 					
 					new AcaoGeraBoleto(req).executa();
+					
 					String pagina = new AcaoLinstagemContratos(req).executa();
 					RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
 					dispatcher.forward(req, resp);	
 					
-				
-			}
+					System.out.println("LINHA 40 BOLETO CONTROLADOR");
+				}
 				
 			if(acao.equals("contratos")) {
-				
-				
 				String pagina = new AcaoRetornaContrato(req).executa();				
 				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
 				dispatcher.forward(req, resp);

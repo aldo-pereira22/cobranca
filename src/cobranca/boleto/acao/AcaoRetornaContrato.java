@@ -19,8 +19,7 @@ public class AcaoRetornaContrato {
 	public String executa() {
 		
 		String id = req.getParameter("id");
-		Contrato contrato = new ContratoDao().get(Long.parseLong(id));
-		
+		Contrato contrato = new ContratoDao().get(Long.parseLong(id));		
 		req.setAttribute("contrato", contrato);
 		return"boletos.jsp";
 	}

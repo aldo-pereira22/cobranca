@@ -40,7 +40,7 @@
 		
 		<thead>
 			<tr> 	
-				<th>CODIGO DO CONTRATO</th>
+				<th>NUMERO DO CONTRATO</th>
 				<th>DESCRIÇÃO</th>
 				<th> SERVICO </th>
 				<th> VALOR </th>
@@ -65,7 +65,7 @@
 		</tbody>
 		 
 	</table>
-	<a class="btn" href="contrato?acao=novoContrato&cnpj=${cliente.cnpj}">DOWNLOAD</a>  
+	<a class="btn" href="boleto?acao=gerar&id=${contrato.getId()}">GERAR PDF</a>  
 <!--  	<a class="btn" href="contrato?acao=novoContrato&cnpj=${cliente.cnpj}">BOLETOS EM LOTE</a> -->
 </body>
 </html>

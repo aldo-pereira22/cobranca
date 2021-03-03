@@ -53,6 +53,11 @@ public class BoletoDAO {
 		return em.find(Boleto.class, id);
 	}
 	
+	
+	
+	
+	
+	
 //	public static void main(String[] args) {
 //		Contrato contrato = new ContratoDao().get(1);
 //		
