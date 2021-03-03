@@ -12,7 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialJavaObject;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 import cobranca.boleto.acao.AcaoCarregaContrato;
+import cobranca.boleto.acao.AcaoClienteContratos;
+import cobranca.boleto.acao.AcaoLinstagemContratos;
+import cobranca.boleto.acao.AcaoNovoContrato;
 import cobranca.controlador.acao.AcaoCarregaDadosCliente;
 import cobranca.controlador.acao.AcaoListagemBoletos;
 import cobranca.controlador.acao.AcaoSalvaBoletos;
@@ -36,73 +41,134 @@ public class ContratoControlador extends HttpServlet {
 		String acao = req.getParameter("acao");
 		String cnpj = req.getParameter("cnpj");
 		
-		if(acao.equals("contratos")) {
+		if(acao != null ) {
+		
+			if(acao.equals("contratos")) {				
 				
-			ClienteDAO cdao = new ClienteDAO();			
-			Cliente cliente = new Cliente();			
-			cliente = cdao.get(cnpj);
-			req.setAttribute("cliente", cliente);
+				AcaoClienteContratos acaoClienteContratos = new AcaoClienteContratos(req);
+				String pagina = acaoClienteContratos.executa();				
+				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+				dispatcher.forward(req, resp);			
+			}
 			
-			List<Contrato> listaDeContrato = new ArrayList<Contrato>();
-			ContratoDao bdao = new ContratoDao();			
-			listaDeContrato = bdao.lista();			
-			req.setAttribute("listaDeContrato", listaDeContrato);
-						
-			RequestDispatcher dispatcher = req.getRequestDispatcher("cliente-boleto.jsp");
-			dispatcher.forward(req, resp);
-			
-//			AcaoListagemBoletos acaoListagemBoleto = new AcaoListagemBoletos(req);
-//			String pagina= acaoListagemBoleto.executa();
-//			RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
-//			dispatcher.forward(req, resp);
-		}
-			
-		if(acao.equals("novoContrato")) {
-			Cliente cliente = new ClienteDAO().get(cnpj);
-			List<Servico> servico = new ServicoDAO().lista();
-			
-			
-			req.setAttribute("servico", servico);
-			req.setAttribute("cliente", cliente);
-		
-			RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro-contrato.jsp");
-			dispatcher.forward(req, resp);
-		}
-		if(acao.equals("novo")) {
-			
-			Cliente cliente = new ClienteDAO().get(cnpj);
-			List<Servico> lsitaServico = new ServicoDAO().lista();
-			
-			req.setAttribute("cliente", cliente);
-			req.setAttribute("listaServico", lsitaServico);
-			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro-boleto.jsp");
-			dispatcher.forward(req, resp);
-			
-		}
-		
-		if(acao.equals("gerar")){
-			
-		}
-		
-			if(acao.equals("editar")) {
+			if(acao.equals("novoContrato")) {
 				
-	
-				AcaoCarregaContrato acaoCarregaDadosBoleto = new AcaoCarregaContrato(req);
-				String pagina = acaoCarregaDadosBoleto.executa();
+				String pagina = new  AcaoNovoContrato(req).executa();			
 				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
 				dispatcher.forward(req, resp);
 			}
-		
-		if(acao.equals("excluir")) {
 			
+			
+			if(acao.equals("excluir")) {
+				
+				String id = req.getParameter("id");
+				Contrato contrato = new Contrato();
+				ContratoDao cdao = new ContratoDao();
+				contrato = cdao.get(Long.parseLong(id));
+				
+				cdao.excluir(contrato);
+				
+				String pagina = new AcaoLinstagemContratos(req).executa();
+				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+				dispatcher.forward(req, resp);
+				
+				
+			}
+			
+			
+//			if(acao.equals("contratos")) {
+//				
+//				ClienteDAO cdao = new ClienteDAO();			
+//				Cliente cliente = new Cliente();			
+//				cliente = cdao.get(cnpj);
+//				req.setAttribute("cliente", cliente);
+//				
+//				List<Contrato> listaTemporaria = new ArrayList<Contrato>();
+//				ContratoDao bdao = new ContratoDao();
+//				
+//				listaTemporaria = bdao.lista();	
+//				
+//				List<Contrato> listaDeContrato = new ArrayList<>();
+//				
+//				for (Contrato contrato : listaTemporaria) {
+//					
+//					if(contrato.getCliente().getCnpj().equals(cnpj)) {
+//						listaDeContrato.add(contrato);
+//					}
+//				}
+//				
+//				
+//				req.setAttribute("listaDeContrato", listaDeContrato);						
+//				RequestDispatcher dispatcher = req.getRequestDispatcher("cliente-contratos.jsp");
+//				dispatcher.forward(req, resp);
+//			}
+
+
+		}else {
+			
+			
+			String pagina = new AcaoLinstagemContratos(req).executa();
+			RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+			dispatcher.forward(req, resp);
+			
+//			ClienteDAO cdao = new ClienteDAO();			
+//			Cliente cliente = new Cliente();			
+//			cliente = cdao.get(cnpj);
+//			req.setAttribute("cliente", cliente);
+//			
+//			List<Contrato> listaTemporaria = new ArrayList<Contrato>();
+//			ContratoDao bdao = new ContratoDao();
+//			
+//			listaTemporaria = bdao.lista();	
+//			
+//			List<Contrato> listaDeContrato = new ArrayList<>();
+//			
+//			for (Contrato contrato : listaTemporaria) {
+//				
+//				if(contrato.getCliente().getCnpj().equals(cnpj)) {
+//					listaDeContrato.add(contrato);
+//				}
+//			}
+//			
+//			
+//			req.setAttribute("listaDeContrato", listaDeContrato);						
+//			RequestDispatcher dispatcher = req.getRequestDispatcher("cliente-contrato.jsp");
+//			dispatcher.forward(req, resp);
 		}
+					
+				
+		
+//		if(acao.equals("novo")) {
+//			Cliente cliente = new ClienteDAO().get(cnpj);
+//			List<Servico> lsitaServico = new ServicoDAO().lista();
+//			
+//			req.setAttribute("cliente", cliente);
+//			req.setAttribute("listaServico", lsitaServico);
+//			
+//			RequestDispatcher dispatcher = req.getRequestDispatcher("cliente-contratos.jsp");
+//			dispatcher.forward(req, resp);
+//			
+//		}
+		
+		
+//		if(acao.equals("editar")) {					
+//				AcaoCarregaContrato acaoCarregaDadosBoleto = new AcaoCarregaContrato(req);
+//				String pagina = acaoCarregaDadosBoleto.executa();
+//				RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
+//				dispatcher.forward(req, resp);
+//		}else 
+		
+
 
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String cnpj = req.getParameter("cnpj");
+		
+		if(cnpj != null ) {
+			
 		Cliente cliente = new ClienteDAO().get(cnpj);
 		Servico servico = new ServicoDAO().getServico(Long.parseLong( req.getParameter("id") ));
 		
@@ -116,16 +182,15 @@ public class ContratoControlador extends HttpServlet {
 		contrato.setCliente(cliente);
 		cdao.salvar(contrato);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("cadastro-boleto.jsp");
+		//RequestDispatcher dispatcher = req.getRequestDispatcher("cliente-contratos.jsp");
+		//dispatcher.forward(req, resp);	
+		
+		String pagina = new AcaoLinstagemContratos(req).executa();
+		RequestDispatcher dispatcher = req.getRequestDispatcher(pagina);
 		dispatcher.forward(req, resp);
-	
+		
+		
+		}
 		
 	}
 }
-
-
-
-
-
-
-

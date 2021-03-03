@@ -68,7 +68,7 @@
 
 	</div>
 		 			
- 		<p><input type="text" name="input-valor" placeholder="Digite o Valor" size="70" value="${boleto.getValor() }"/></p>
+ 		<p><input type="number" name="input-valor" placeholder="Digite o Valor" size="70" value="${boleto.getValor() }"/></p>
 		<p><input type="text" name="input-descricao" placeholder="Descriçao" size="70" value="${boleto.getDescricao() }"/></p>
 		<p><input type="text" name="input-codigo" placeholder="Codigo" size="70" value="${ boleto.getCodigo() }"/></p>
 		

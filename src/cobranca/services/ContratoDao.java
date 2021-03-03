@@ -57,25 +57,31 @@ public class ContratoDao {
 		return qry.getResultList();
 	}
 	
-	public Contrato get(Long id) {		
+	public Contrato get(long id) {		
 		return em.find(Contrato.class, id);
 	}
 	
 
 	
 public static void main(String[] args) {
-	Cliente cliente = new ClienteDAO().get("111");
-	Servico servico = new ServicoDAO().getServico(1);
+//	Cliente cliente = new ClienteDAO().get("111");
+//	Servico servico = new ServicoDAO().getServico(1);
+//	
+//	Contrato contrato = new Contrato();
+//	ContratoDao cdao = new ContratoDao();
+//	
+//	contrato.setCliente(cliente);
+//	contrato.setServico(servico);
+//	contrato.setCodigo("150");
+//	contrato.setDescricao("SERVICO DE IMPRESSÃO");
+//	contrato.setValor(180);
+//	cdao.salvar(contrato);
 	
-	Contrato contrato = new Contrato();
-	ContratoDao cdao = new ContratoDao();
+//	Contrato contrato  = new ContratoDao().get(Long.parseLong("1"));
+//	ContratoDao cdao = new ContratoDao();
+//	
+//	cdao.excluir(contrato);
 	
-	contrato.setCliente(cliente);
-	contrato.setServico(servico);
-	contrato.setCodigo("150");
-	contrato.setDescricao("SERVICO DE IMPRESSÃO");
-	contrato.setValor(180);
-	cdao.salvar(contrato);
 	
 }
 	

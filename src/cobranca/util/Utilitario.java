@@ -1,6 +1,9 @@
 package cobranca.util;
 
+import java.util.Random;
+
 public class Utilitario {
+	
 	public static boolean isNumeric (String s) {
 		try {
 			Long.parseLong(s);
@@ -8,5 +11,13 @@ public class Utilitario {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public static String geraCodigo() {
+		
+		Random random = new Random();
+		
+		String codigo = String.valueOf(random.nextInt(30000));
+		return codigo;
 	}
 }

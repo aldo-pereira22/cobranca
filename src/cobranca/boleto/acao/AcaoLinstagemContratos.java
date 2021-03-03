@@ -19,7 +19,7 @@ public class AcaoLinstagemContratos {
 	
 	public String executa() {
 		List<Contrato> lista = new ContratoDao().lista();
-		req.setAttribute("boletos", lista);
-		return("cliente-boleto.jsp");
+		req.setAttribute("listaDeContrato", lista);
+		return("cliente-contratos.jsp");
 	}
 }

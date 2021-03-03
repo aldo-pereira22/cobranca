@@ -15,6 +15,8 @@ public class Contrato {
 	
 	private String codigo;
 	private String descricao;
+	private double valor;
+	
 	
 	@ManyToOne
 	private Cliente cliente;
@@ -22,8 +24,7 @@ public class Contrato {
 	@ManyToOne
 	private Servico servico;
 	
-	private double valor;
-	
+
 	
 	public double getValor() {
 		return valor;
